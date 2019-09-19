@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ 
+<hibernate-mapping>
+    <class name = "com.ideas2it.feastr.model.Address" table = "address">
+    <id name = "addressId" column = "id" type = "int">
+        <generator class = "identity"/>
+    </id>
+    <many-to-one name = "hotel" class = "com.ideas2it.feastr.model.Hotel">
+        <column name = "hotel_id" not-null = "false"/>
+    </many-to-one>
+    <many-to-one name = "customer" class = "com.ideas2it.feastr.model.Customer">
+        <column name = "customer_id" not-null = "false"/>
+    </many-to-one>
+    <property name="streetName" column ="street" type = "string" length = "30"/>
+    <property name="city" column ="city" type = "string" length = "15"/>
+    <property name="pincode" column ="pincode" type = "string" length = "6"/>
+    </class>
+</hibernate-mapping>

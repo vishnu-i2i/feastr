@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+
+<hibernate-mapping>
+    <class name = "com.ideas2it.feastr.model.Hotel" table = "hotel">
+    <id name = "hotelId" column ="id" type = "string" length = "10"/>
+    <property name="firstName" column ="first_name"  type = "string" length = "20"/>
+    <property name="lastName" column ="last_name"  type = "string" length = "20"/>
+    <property name="phoneNumber" column ="phone_number"  type = "string" unique = "true" length = "10"/>
+    <property name="mailId" column ="mail_id"  type = "string" length = "30"/>
+    <property name="managerName" column ="manager_name"  type = "string" length = "35"/> 
+    <property name="location" column ="location"  type = "string" length = "20"/> 
+    <property name="status" column ="status"  type = "boolean"/>
+    <property name="createdDate" column ="created_date" type = "date"/>
+    <property name="updatedDate" column ="updated" type = "date"/>
+
+    <list name ="addresses" table="address" lazy = "false" cascade="all" >
+        <key column = "hotel_id" not-null = "false" />
+        <list-index column = "list_index"/>
+        <one-to-many class="com.ideas2it.feastr.model.Address"/>
+    </list>
+    </class>
+
+</hibernate-mapping>

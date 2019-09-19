@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+
+<hibernate-mapping>
+    <class name = "com.ideas2it.feastr.model.Executive" table = "executive">
+    <id name = "executiveId" column ="id" type = "string"/> 
+    <property name="firstName" column ="first_name" type = "string" length = "20"/>
+    <property name="lastName" column ="last_name" type = "string" length = "20"/> 
+    <property name="phoneNumber" column ="phone_number" type = "string" unique = "true" length = "20"/> 
+    <property name="vehicleNumber" column ="vehicle_number" type = "string" unique = "true" length = "20"/> 
+    <property name="licenseNumber" column ="license_number" type = "string" unique = "true" length = "20"/>
+    <property name="mailId" column ="mail_id" type = "string" length = "30"/> 
+    <property name="dob" column ="date_of_birth" type = "string" length = "20"/>
+    <property name="status" column ="status"/> 
+    <property name="createdDate" column ="created" type = "date"/>
+    <property name="updatedDate" column ="updated" type = "date"/>
+    </class>
+</hibernate-mapping>

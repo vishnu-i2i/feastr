@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name = "com.ideas2it.feastr.model.Order" table = "orders">
+    <id name = "orderId" column = "id" type = "int">
+        <generator class = "identity"></generator>
+    </id>
+    <many-to-one name = "customer" class = "com.ideas2it.feastr.model.Customer">
+        <column name = "customer_id"  not-null = "true"/>
+    </many-to-one>
+    <many-to-one name = "hotel" class = "com.ideas2it.feastr.model.Hotel">
+        <column name = "hotel_id"  not-null = "true"/>
+    </many-to-one>
+    <many-to-one name = "executive" class = "com.ideas2it.feastr.model.Executive">
+        <column name = "executive_id"  not-null = "true"/>
+    </many-to-one>
+    <property name="orderDetails" column ="details" type = "string" length = "200"/>
+    <property name="total" column ="total" type = "big_decimal"/>
+    <property name="createdDate" column ="created" type = "date"/>
+    </class>
+</hibernate-mapping>

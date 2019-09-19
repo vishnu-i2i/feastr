@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ 
+<hibernate-mapping>
+    <class name = "com.ideas2it.feastr.model.Dish" table = "menu">
+    <id name = "dishId" column ="id" type = "string" length = "10"/> 
+    <many-to-one name = "hotel" class = "com.ideas2it.feastr.model.Hotel">
+        <column name = "hotel_id" not-null = "true"/>
+    </many-to-one>
+    <property name="name" column ="name" type = "string" length = "30"/>
+    <property name="price" column ="price" type = "big_decimal"/> 
+    <property name="category" column ="category" type = "string" length = "14"/>
+    <property name="availability" column ="availability" type = "boolean"/>
+    <property name="createdDate" column ="created" type = "date"/>
+    <property name="updatedDate" column ="updated" type = "date"/>
+    </class>
+</hibernate-mapping>
